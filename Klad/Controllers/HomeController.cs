@@ -10,9 +10,31 @@ namespace Klad.Controllers
 {
     public class HomeController : Controller
     {
+        ProductContext db;
+        public HomeController(ProductContext context)
+        {
+            db = context;
+        }
+
+        [HttpGet]
+        public IActionResult Buy(int id)
+        {
+            ViewBag.ProductId = id;
+            return View();
+        }
+        [HttpPost]
+        public string Buy(Order order)
+        {
+            db.Orders.Add(order);
+            // сохраняем в бд все изменения
+            db.SaveChanges();
+            return "Спасибо, " + order.User + ", за покупку!";
+        }
+
         public IActionResult Index()
         {
-            return View();
+            // return View();
+            return View(db.Products.ToList());
         }
 
         public IActionResult About()
