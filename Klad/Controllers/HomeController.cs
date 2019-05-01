@@ -20,27 +20,22 @@ namespace Klad.Controllers
 
         public async Task<IActionResult> Index(int page = 1)
         {
-            try
+
+                int pageSize = 2;   // количество элементов на странице
+
+            IQueryable<Product> source = db.Products; //.Include(x => x.Company);
+            var count = await source.CountAsync();
+            var items = await source.Skip((page - 1) * pageSize).Take(pageSize).ToListAsync();
+
+            PageViewModel pageViewModel = new PageViewModel(count, page, pageSize);
+            IndexViewModel viewModel = new IndexViewModel
             {
-                int pageSize = 1;   // количество элементов на странице
+                PageViewModel = pageViewModel,
+                Products = items
+            };
+            return View(viewModel);
+            
 
-                IQueryable<Product> source = db.Products; //.Include(x => x.Company);
-                var count = await source.CountAsync();
-                var items = await source.Skip((page - 1) * pageSize).Take(pageSize).ToListAsync();
-
-                PageViewModel pageViewModel = new PageViewModel(count, page, pageSize);
-                IndexViewModel viewModel = new IndexViewModel
-                {
-                    PageViewModel = pageViewModel,
-                    Products = items
-                };
-                return View(viewModel);
-            }
-            catch(Exception ex)
-            {
-
-            }
-            return View(new IndexViewModel());
         }
 
         [HttpGet]

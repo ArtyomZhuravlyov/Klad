@@ -11,10 +11,10 @@ using Microsoft.AspNetCore.Razor.TagHelpers;
 
 namespace Klad.Models
 {
-    public class Listing : TagHelper
+    public class PageLinkTagHelper : TagHelper
     {
         private IUrlHelperFactory urlHelperFactory;
-        public Listing(IUrlHelperFactory helperFactory)
+        public PageLinkTagHelper(IUrlHelperFactory helperFactory)
         {
             urlHelperFactory = helperFactory;
         }
@@ -33,23 +33,38 @@ namespace Klad.Models
             TagBuilder tag = new TagBuilder("ul");
             tag.AddCssClass("pagination");
 
-            // формируем три ссылки - на текущую, предыдущую и следующую
+            // формируем три ссылки - на текущую, следующую и следующую2
             TagBuilder currentItem = CreateTag(PageModel.PageNumber, urlHelper);
-
-            // создаем ссылку на предыдущую страницу, если она есть
-            if (PageModel.HasPreviousPage)
+            if(PageModel.PageNumber == 1)
             {
-                TagBuilder prevItem = CreateTag(PageModel.PageNumber - 1, urlHelper);
-                tag.InnerHtml.AppendHtml(prevItem);
-            }
+                TagBuilder current = CreateTag(PageModel.PageNumber, urlHelper);
+                tag.InnerHtml.AppendHtml(current);
 
-            tag.InnerHtml.AppendHtml(currentItem);
-            // создаем ссылку на следующую страницу, если она есть
-            if (PageModel.HasNextPage)
-            {
                 TagBuilder nextItem = CreateTag(PageModel.PageNumber + 1, urlHelper);
                 tag.InnerHtml.AppendHtml(nextItem);
+
+                TagBuilder nextItem2 = CreateTag(PageModel.PageNumber + 2, urlHelper);
+                tag.InnerHtml.AppendHtml(nextItem2);
+
             }
+            else
+            {
+                // создаем ссылку на предыдущую страницу, если она есть
+                if (PageModel.HasPreviousPage)
+                {
+                    TagBuilder prevItem = CreateTag(PageModel.PageNumber - 1, urlHelper);
+                    tag.InnerHtml.AppendHtml(prevItem);
+                }
+
+                tag.InnerHtml.AppendHtml(currentItem);
+                // создаем ссылку на следующую страницу, если она есть
+                if (PageModel.HasNextPage)
+                {
+                    TagBuilder nextItem = CreateTag(PageModel.PageNumber + 1, urlHelper);
+                    tag.InnerHtml.AppendHtml(nextItem);
+                }
+            }
+
             output.Content.AppendHtml(tag);
         }
 

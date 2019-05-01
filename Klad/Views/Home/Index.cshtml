@@ -1,7 +1,10 @@
 ﻿@*@model IEnumerable<Klad.Models.Product>*@
+@*@using Klad.Models
+@model IndexViewModel*@
 @using Klad.Models
 @model IndexViewModel
 @*подключаем все tag-хелперы*@
+@addTagHelper "*, Klad"
 
 @{
     ViewData["Title"] = "Каталог товаров";
@@ -33,8 +36,8 @@
             </tr>
         }
     </table>
-    @*<page-link page-model="Model.PageViewModel" page-action="Index"></page-link>*@
-    @if (Model.PageViewModel.HasPreviousPage)
+    <page-link page-model="Model.PageViewModel" page-action="Index"></page-link>
+    @*@if (Model.PageViewModel.HasPreviousPage)
     {
         <a asp-action="Index"
            asp-route-page="@(Model.PageViewModel.PageNumber - 1)"
@@ -51,6 +54,6 @@
             Вперед
             <i class="glyphicon glyphicon-chevron-right"></i>
         </a>
-    }
+    }*@
 </body>
 </html>
