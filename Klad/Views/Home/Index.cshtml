@@ -37,23 +37,26 @@
         }
     </table>
     <page-link page-model="Model.PageViewModel" page-action="Index"></page-link>
-    @*@if (Model.PageViewModel.HasPreviousPage)
-    {
-        <a asp-action="Index"
-           asp-route-page="@(Model.PageViewModel.PageNumber - 1)"
-           class="btn btn-default btn">
-            <i class="glyphicon glyphicon-chevron-left"></i>
-            Назад
-        </a>
-    }
-    @if (Model.PageViewModel.HasNextPage)
-    {
-        <a asp-action="Index"
-           asp-route-page="@(Model.PageViewModel.PageNumber + 1)"
-           class="btn btn-default btn">
-            Вперед
-            <i class="glyphicon glyphicon-chevron-right"></i>
-        </a>
-    }*@
+
+    <h3>Каталоги</h3>
+    <table class="table-condensed">
+        @*Распределяет или выравнивает текст в таблице*@
+        <tr>
+            <td>Модель</td>
+            <td>Производитель</td>
+            <td>Цена</td>
+            <td></td>
+        </tr>
+        @foreach (var product in Model.Products)
+        {
+            <tr>
+                <td>@product.Name</td>
+                <td>@product.Company</td>
+                <td>@product.Price</td>
+                <td><a href="~/Home/Buy/@product.Id">Купить</a></td>
+            </tr>
+        }
+    </table>
+
 </body>
 </html>

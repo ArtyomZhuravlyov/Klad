@@ -34,18 +34,42 @@ namespace Klad.Models
             tag.AddCssClass("pagination");
 
             // формируем три ссылки - на текущую, следующую и следующую2
-            TagBuilder currentItem = CreateTag(PageModel.PageNumber, urlHelper);
-            if(PageModel.PageNumber == 1)
+
+
+            if (PageModel.PageNumber == 1)
             {
-                TagBuilder current = CreateTag(PageModel.PageNumber, urlHelper);
-                tag.InnerHtml.AppendHtml(current);
+                TagBuilder currentItem = CreateTag(PageModel.PageNumber, urlHelper); //текущая
+                tag.InnerHtml.AppendHtml(currentItem);
 
-                TagBuilder nextItem = CreateTag(PageModel.PageNumber + 1, urlHelper);
-                tag.InnerHtml.AppendHtml(nextItem);
+                if (PageModel.HasNextPage)
+                {
+                    TagBuilder nextItem = CreateTag(PageModel.PageNumber + 1, urlHelper);
+                    tag.InnerHtml.AppendHtml(nextItem);
+                }
 
-                TagBuilder nextItem2 = CreateTag(PageModel.PageNumber + 2, urlHelper);
-                tag.InnerHtml.AppendHtml(nextItem2);
+                if (PageModel.HasNextTwoPage)
+                {
+                    TagBuilder nextItem2 = CreateTag(PageModel.PageNumber + 2, urlHelper);
+                    tag.InnerHtml.AppendHtml(nextItem2);
+                }
 
+            }
+            else if (PageModel.PageNumber == PageModel.TotalPages)
+            {
+                if (PageModel.HasPreviousTwoPage)
+                {
+                    TagBuilder prevItem = CreateTag(PageModel.PageNumber - 2, urlHelper);
+                    tag.InnerHtml.AppendHtml(prevItem);
+                }
+
+                if (PageModel.HasPreviousPage)
+                {
+                    TagBuilder prevItem = CreateTag(PageModel.PageNumber - 1, urlHelper);
+                    tag.InnerHtml.AppendHtml(prevItem);
+                }
+
+                TagBuilder currentItem = CreateTag(PageModel.PageNumber, urlHelper); //текущая
+                tag.InnerHtml.AppendHtml(currentItem);
             }
             else
             {
@@ -56,7 +80,9 @@ namespace Klad.Models
                     tag.InnerHtml.AppendHtml(prevItem);
                 }
 
+                TagBuilder currentItem = CreateTag(PageModel.PageNumber, urlHelper); //текущая
                 tag.InnerHtml.AppendHtml(currentItem);
+
                 // создаем ссылку на следующую страницу, если она есть
                 if (PageModel.HasNextPage)
                 {
