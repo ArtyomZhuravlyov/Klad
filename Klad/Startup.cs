@@ -84,14 +84,26 @@ namespace Klad
 
                 routes.MapRoute(null,
                 "{category}",
-                new { controller = "Home", action = "Index", page = 1 }
-            );
+                new { controller = "Home", action = "Index", page = 1 });
 
-            routes.MapRoute(null,
-                "{category}/Page{page}",
-                new { controller = "Home", action = "Index" },
-                new { page = @"\d+" }
-            );
+
+                //routes.MapRoute(null,
+                //    "{category}/Page{page}",
+                //    new { controller = "Home", action = "Index" },
+                //    new { page = @"\d+" }
+                //);
+
+                routes.MapRoute(null,
+               "{category}/{page}",
+               new { controller = "Home", action = "Index" },
+               new { page = @"\d+" });
+
+
+             //   routes.MapRoute(null,
+             //"{category}/{page}/{rrr}",
+             //new { controller = "Home", action = "Index" },
+             //new { page = @"\d+" });
+
             });
         }
     }

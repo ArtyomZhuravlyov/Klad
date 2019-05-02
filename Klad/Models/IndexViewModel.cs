@@ -13,5 +13,7 @@ namespace Klad.Models
         public List<string> ListCategory { get; set; }
 
         public string CurrentCategory { get; set; }
+
+        public List<int> Pages { get; set; }
     }
 }

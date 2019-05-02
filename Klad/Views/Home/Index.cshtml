@@ -38,9 +38,15 @@
             </tr>
         }
     </table>
-    @*<page-link page-model="Model.PageViewModel" page-action="Index"></page-link>*@
-    <page-link page-model="Model.PageViewModel"> page-action="/@Model.CurrentCategory/" </page-link>
-   
+    @if (Model.CurrentCategory != null)
+    {
+        @foreach (var _page in Model.Pages)
+        {
+            <tr>
+                <td><a href="/@Model.CurrentCategory/@_page"> @_page</a></td>
+            </tr>
+        }
+    }
     <h3>Каталоги</h3>
     <table class="table-condensed">
         @foreach (var _category in Model.ListCategory)

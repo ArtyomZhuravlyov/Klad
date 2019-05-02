@@ -35,9 +35,12 @@ namespace Klad.Controllers
             int pageSize = 2;   // количество элементов на странице
             IQueryable<Product> source;
 
-            if (category == null || category =="all")
+            if (category == null || category == "all")
                 source = db.Products; //.Include(x => x.Company);
-            else source = db.Products.Where(x => x.Category == category);
+            else
+            {
+                source = db.Products.Where(x => x.Category == category);
+            }
 
             
 
@@ -45,12 +48,15 @@ namespace Klad.Controllers
             var items = await source.Skip((page - 1) * pageSize).Take(pageSize).ToListAsync();
 
             PageViewModel pageViewModel = new PageViewModel(count, page, pageSize);
+            List<int> pagesList = new PagesLink(pageViewModel)._pages;
+
             IndexViewModel viewModel = new IndexViewModel
             {
                 PageViewModel = pageViewModel,
                 Products = items,
                 ListCategory = Category.category,
-                CurrentCategory = category
+                CurrentCategory = category,
+                Pages = pagesList
             };
             return View(viewModel);
             
