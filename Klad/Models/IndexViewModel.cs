@@ -9,5 +9,9 @@ namespace Klad.Models
     {
         public IEnumerable<Product> Products { get; set; }
         public PageViewModel PageViewModel { get; set; }
+
+        public List<string> ListCategory { get; set; }
+
+        public string CurrentCategory { get; set; }
     }
 }

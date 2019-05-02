@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace Klad.Models
 {
-    public class PageViewModel
+    public class PageViewModel 
     {
         public int count { get; private set; }
         public int pageSize { get; private set; }

@@ -63,6 +63,35 @@ namespace Klad
                 routes.MapRoute(
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
+
+                //routes.MapRoute(null,
+                //                "",
+                //                new
+                //                {
+                //                    controller = "Home",
+                //                    action = "Index",
+                //                    category = (string)null,
+                //                    page = 1
+                //                }
+                //            );
+
+                //routes.MapRoute(
+                //    name: null,
+                //    url
+                //    defaults: new { controller = "Home", action = "Index", category = (string)null },
+                //    constraints: new { page = @"\d+" }
+                //);
+
+                routes.MapRoute(null,
+                "{category}",
+                new { controller = "Home", action = "Index", page = 1 }
+            );
+
+            routes.MapRoute(null,
+                "{category}/Page{page}",
+                new { controller = "Home", action = "Index" },
+                new { page = @"\d+" }
+            );
             });
         }
     }

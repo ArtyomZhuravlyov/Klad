@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Klad.Models;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Http;
 
 namespace Klad.Controllers
 {
@@ -18,12 +19,28 @@ namespace Klad.Controllers
         }
 
 
-        public async Task<IActionResult> Index(int page = 1)
+        //   public async Task<IActionResult> Index(int page = 1, string category = null)
+        public async Task<IActionResult> Index( string category = null,  int page = 1)
         {
+           // var pathBase = HttpContext.Request.PathBase;
+            //string table = "";
+            //foreach (var header in Request.Headers)
+            //{
+            //    table += $"<tr><td>{header.Key}</td><td>{header.Value}</td></tr>";
+            //}
+            //Response.WriteAsync(String.Format("<table>{0}</table>", table));
+            //string userAgent = Request.Headers["User-Agent"].ToString();
+            //string referer = Request.Headers["Referer"].ToString();
 
-                int pageSize = 2;   // количество элементов на странице
+            int pageSize = 2;   // количество элементов на странице
+            IQueryable<Product> source;
 
-            IQueryable<Product> source = db.Products; //.Include(x => x.Company);
+            if (category == null || category =="all")
+                source = db.Products; //.Include(x => x.Company);
+            else source = db.Products.Where(x => x.Category == category);
+
+            
+
             var count = await source.CountAsync();
             var items = await source.Skip((page - 1) * pageSize).Take(pageSize).ToListAsync();
 
@@ -31,7 +48,9 @@ namespace Klad.Controllers
             IndexViewModel viewModel = new IndexViewModel
             {
                 PageViewModel = pageViewModel,
-                Products = items
+                Products = items,
+                ListCategory = Category.category,
+                CurrentCategory = category
             };
             return View(viewModel);
             
@@ -85,6 +104,8 @@ namespace Klad.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+
+
 
     }
 }

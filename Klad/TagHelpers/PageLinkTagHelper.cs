@@ -35,7 +35,6 @@ namespace Klad.Models
 
             // формируем три ссылки - на текущую, следующую и следующую2
 
-
             if (PageModel.PageNumber == 1)
             {
                 TagBuilder currentItem = CreateTag(PageModel.PageNumber, urlHelper); //текущая
@@ -96,18 +95,26 @@ namespace Klad.Models
 
         TagBuilder CreateTag(int pageNumber, IUrlHelper urlHelper)
         {
+        //    string url = HttpContext.Current.Request.Url.AbsoluteUri;
             TagBuilder item = new TagBuilder("li");
+          //  TagBuilder item2 = new TagBuilder("li");
             TagBuilder link = new TagBuilder("a");
+          //  TagBuilder link2 = new TagBuilder("a");
             if (pageNumber == this.PageModel.PageNumber)
             {
                 item.AddCssClass("active");
             }
             else
             {
-                link.Attributes["href"] = urlHelper.Action(PageAction, new { page = pageNumber });
+                
+                 link.Attributes["href"] = urlHelper.Action(PageAction ,new { page = pageNumber });
+               // link.Attributes["href"] = urlHelper.ActionLink(PageAction, new { page = pageNumber }, new { category = "zoro" });
+             //   link2.Attributes["href"] = urlHelper.Action(PageAction, new { category = "zoro" });
             }
             link.InnerHtml.Append(pageNumber.ToString());
+        //    link2.InnerHtml.Append("zoro");
             item.InnerHtml.AppendHtml(link);
+         //   item2.InnerHtml.AppendHtml(link2);
             return item;
         }
     }

@@ -23,6 +23,7 @@
         <tr>
             <td>Модель</td>
             <td>Производитель</td>
+            <td>Категория</td>
             <td>Цена</td>
             <td></td>
         </tr>
@@ -31,29 +32,22 @@
             <tr>
                 <td>@product.Name</td>
                 <td>@product.Company</td>
+                <td>@product.Category</td>
                 <td>@product.Price</td>
                 <td><a href="~/Home/Buy/@product.Id">Купить</a></td>
             </tr>
         }
     </table>
-    <page-link page-model="Model.PageViewModel" page-action="Index"></page-link>
-
+    @*<page-link page-model="Model.PageViewModel" page-action="Index"></page-link>*@
+    <page-link page-model="Model.PageViewModel"> page-action="/@Model.CurrentCategory/" </page-link>
+   
     <h3>Каталоги</h3>
     <table class="table-condensed">
-        @*Распределяет или выравнивает текст в таблице*@
-        <tr>
-            <td>Модель</td>
-            <td>Производитель</td>
-            <td>Цена</td>
-            <td></td>
-        </tr>
-        @foreach (var product in Model.Products)
+        @foreach (var _category in Model.ListCategory)
         {
             <tr>
-                <td>@product.Name</td>
-                <td>@product.Company</td>
-                <td>@product.Price</td>
-                <td><a href="~/Home/Buy/@product.Id">Купить</a></td>
+                @*<td><a href="~/Home/Index/@_category ">@_category</a></td>*@
+                <td><a href="/@_category ">@_category</a></td>
             </tr>
         }
     </table>
