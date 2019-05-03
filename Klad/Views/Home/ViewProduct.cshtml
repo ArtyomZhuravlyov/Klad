@@ -1,0 +1,55 @@
+﻿
+@using Klad.Models
+@model IndexViewModel
+@*подключаем все tag-хелперы*@
+@addTagHelper "*, Klad"
+
+@{
+    ViewData["Title"] = @Model.Products.ElementAt(0).Name;
+    //   Layout = null;
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Магазин смартфонов пока</title>
+</head>
+<body>
+    <h3>Смартфоны</h3>
+    <table class="table-condensed">
+        @*Распределяет или выравнивает текст в таблице*@
+        <tr>
+            <td>Модель</td>
+            <td>Производитель</td>
+            <td>Категория</td>
+            <td>Цена</td>
+            <td></td>
+        </tr>
+
+            <tr>
+                <td>@Model.Products.ElementAt(0).Name</td>
+                <td>@Model.Products.ElementAt(0).Company</td>
+                <td>@Model.Products.ElementAt(0).Category</td>
+                <td>@Model.Products.ElementAt(0).Price</td>
+
+                @{Model.Products.ElementAt(0).Address += ".jpg";}
+
+                <img src="~/images/@Model.Products.ElementAt(0).Address" alt="альтернативный текст">
+            </tr>
+
+    </table>
+
+
+    <h3>Каталоги</h3>
+    <table class="table-condensed">
+        @foreach (var _category in Model.ListCategory)
+        {
+            <tr>
+                @*<td><a href="~/Home/Index/@_category ">@_category</a></td>*@
+                <td><a href="/@_category ">@_category</a></td>
+            </tr>
+        }
+    </table>
+
+</body>
+</html>

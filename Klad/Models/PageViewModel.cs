@@ -7,7 +7,13 @@ namespace Klad.Models
 {
     public class PageViewModel 
     {
+        /// <summary>
+        /// Общее количество товаров
+        /// </summary>
         public int count { get; private set; }
+        /// <summary>
+        /// Количество товаров на одной странице
+        /// </summary>
         public int pageSize { get; private set; }
         public int PageNumber { get; private set; }
         public int TotalPages { get; private set; }

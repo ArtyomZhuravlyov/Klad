@@ -60,9 +60,14 @@ namespace Klad
 
             app.UseMvc(routes =>
             {
+                //routes.MapRoute(
+                //    "Default", // Route name
+                //    new { controller = "Home", action = "Index" } // Parameter defaults
+                //    );
+
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
+                    template: "{controller=Home}/{action=Main}/{id?}");
 
                 //routes.MapRoute(null,
                 //                "",
@@ -99,10 +104,18 @@ namespace Klad
                new { page = @"\d+" });
 
 
-             //   routes.MapRoute(null,
-             //"{category}/{page}/{rrr}",
-             //new { controller = "Home", action = "Index" },
-             //new { page = @"\d+" });
+                routes.MapRoute(null,
+                 "{category}/{page}/{product}",
+                 new { controller = "Home", action = "ViewProduct" },
+                 new { page = @"\d+" }
+                 );
+
+                //   routes.MapRoute(null,
+                //"{category}/{page}/{product}",
+                //new { controller = "Home", action = "ViewProduct" },
+                //new { page = @"\d+" },
+                //new { page = @"\d+" }
+                //);
 
             });
         }

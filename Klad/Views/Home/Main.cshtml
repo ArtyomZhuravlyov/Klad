@@ -1,0 +1,59 @@
+﻿@*@model IEnumerable<Klad.Models.Product>*@
+@*@using Klad.Models
+    @model IndexViewModel*@
+@using Klad.Models
+@model IndexViewModel
+@*подключаем все tag-хелперы*@
+@addTagHelper "*, Klad"
+
+@{
+    ViewData["Title"] = "Главная";
+    //   Layout = null;
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Магазин смартфонов пока</title>
+</head>
+<body>
+    <h3>Смартфоны</h3>
+    <table class="table-condensed">
+        @*Распределяет или выравнивает текст в таблице*@
+        <tr>
+            <td>Модель</td>
+            <td>Производитель</td>
+            <td>Категория</td>
+            <td>Цена</td>
+            <td></td>
+        </tr>
+    </table>
+
+    @foreach (var product in Model.Products)
+    {
+    <tr>
+        <td>@product.Name</td>
+        <td>@product.Company</td>
+        <td>@product.Category</td>
+        <td>@product.Price</td>
+        @{product.Address += ".jpg"; }
+
+        <img src="~/images/@product.Address" alt="альтернативный текст">
+        <td><a href="~/Home/ViewProduct/@product.Id">Купить</a></td>
+    </tr>
+        
+    }
+
+    <h3>Каталоги</h3>
+    <table class="table-condensed">
+        @foreach (var _category in Model.ListCategory)
+        {
+            <tr>
+                @*<td><a href="~/Home/Index/@_category ">@_category</a></td>*@
+                <td><a href="/@_category ">@_category</a></td>
+            </tr>
+        }
+    </table>
+
+</body>
+</html>

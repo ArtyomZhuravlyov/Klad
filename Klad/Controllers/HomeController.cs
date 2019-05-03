@@ -18,34 +18,19 @@ namespace Klad.Controllers
             db = context;
         }
 
-
-        //   public async Task<IActionResult> Index(int page = 1, string category = null)
+        /// <summary>
+        /// Каталог товаров
+        /// </summary>
+        /// <param name="category"></param>
+        /// <param name="page"></param>
+        /// <returns></returns>
         public async Task<IActionResult> Index( string category = null,  int page = 1)
         {
-            // var pathBase = HttpContext.Request.PathBase;
-            //string table = "";
-            //foreach (var header in Request.Headers)
-            //{
-            //    table += $"<tr><td>{header.Key}</td><td>{header.Value}</td></tr>";
-            //}
-            //Response.WriteAsync(String.Format("<table>{0}</table>", table));
-            //string userAgent = Request.Headers["User-Agent"].ToString();
-            //string referer = Request.Headers["Referer"].ToString();
             int pageSize;
             IQueryable<Product> source;
-
-            if (category == null)
-            {
-                pageSize = 6;   // количество элементов на странице //main
-                source = db.Products.Where(x => x.Favourite == true); ; //.Include(x => x.Company);
-            }             
-            else
-            {
-                pageSize = 2;
-                source = db.Products.Where(x => x.Category == category);
-            }
-
-            
+     
+            pageSize = 2;
+            source = db.Products.Where(x => x.Category == category);
 
             var count = await source.CountAsync();
             var items = await source.Skip((page - 1) * pageSize).Take(pageSize).ToListAsync();
@@ -61,9 +46,45 @@ namespace Klad.Controllers
                 CurrentCategory = category,
                 Pages = pagesList
             };
-            return View(viewModel);
-            
 
+            return View(viewModel); 
+        }
+
+        /// <summary>
+        /// Главная страница
+        /// </summary>
+        /// <returns></returns>
+        public async Task<IActionResult> Main()
+        {
+            IQueryable<Product> source;
+
+            source = db.Products.Where(x => x.Favourite == true);  //.Include(x => x.Company);
+            var items = await source.ToListAsync();
+
+            IndexViewModel viewModel = new IndexViewModel
+            {
+                Products = items,
+                ListCategory = Category.category, //список всех категорий
+            };
+
+            return View(viewModel);
+        }
+
+
+        public IActionResult ViewProduct(int id)
+        {
+            IQueryable<Product> source;
+            source = db.Products.Where(x => x.Id == id);
+            var items = source.ToList(); //возможно потом переделать в асинх как в примерах выше
+
+            IndexViewModel viewModel = new IndexViewModel
+            {
+                Products = items,
+                ListCategory = Category.category, //список всех категорий
+            };
+
+           // ViewBag.ProductId = id;
+            return View(viewModel);
         }
 
         [HttpGet]
@@ -74,6 +95,7 @@ namespace Klad.Controllers
             return View();
 
         }
+
         [HttpPost]
         public string Buy(Order order)
         {

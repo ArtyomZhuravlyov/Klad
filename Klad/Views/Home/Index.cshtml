@@ -1,6 +1,4 @@
-﻿@*@model IEnumerable<Klad.Models.Product>*@
-@*@using Klad.Models
-@model IndexViewModel*@
+﻿
 @using Klad.Models
 @model IndexViewModel
 @*подключаем все tag-хелперы*@
@@ -28,31 +26,28 @@
             <td></td>
         </tr>
         @foreach (var product in Model.Products)
-        { 
-            <tr>
-                <td>@product.Name</td>
-                <td>@product.Company</td>
-                <td>@product.Category</td>
-                <td>@product.Price</td>
+        {
+        <tr>
+            <td>@product.Name</td>
+            <td>@product.Company</td>
+            <td>@product.Category</td>
+            <td>@product.Price</td>
 
-                @*<td><a href="~/Home/Buy/@product.Id">Купить</a></td>*@
-            </tr>
+            @{product.Address += ".jpg";}
+
+            <img src="~/images/@product.Address" alt="альтернативный текст">
+            <td><a href="~/Home/ViewProduct/@product.Id">Купить</a></td>
+        </tr>
         }
     </table>
-        @foreach (var product in Model.Products)
+
+        @foreach (var _page in Model.Pages)
         {
-            product.Address += ".jpg";
-               <img src="~/images/@product.Address" alt="альтернативный текст">
+            <tr>
+                <td><a href="/@Model.CurrentCategory/@_page"> @_page</a></td>
+            </tr>
         }
-        @if (Model.CurrentCategory != null)
-        {
-            @foreach (var _page in Model.Pages)
-            {
-                <tr>
-                    <td><a href="/@Model.CurrentCategory/@_page"> @_page</a></td>
-                </tr>
-            }
-        }
+        
         <h3>Каталоги</h3>
         <table class="table-condensed">
             @foreach (var _category in Model.ListCategory)

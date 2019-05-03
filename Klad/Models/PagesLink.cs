@@ -7,8 +7,15 @@ namespace Klad.Models
 {
     public class PagesLink
     {
+        /// <summary>
+        /// Хранит список страниц для отображения
+        /// </summary>
        public List<int> _pages { get; set; }
 
+        /// <summary>
+        /// Задаёт какие страницы отображать 1 2 3 или 1 2
+        /// </summary>
+        /// <param name="pageViewModel"></param>
         public PagesLink(PageViewModel pageViewModel)
         {
             _pages = new List<int>();
