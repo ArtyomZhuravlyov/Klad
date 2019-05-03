@@ -16,5 +16,7 @@ namespace Klad.Models
         public string Category { get; set; }
         public string Company { get; set; }
         public int Price { get; set; }
+        public string Address { get; set; }
+        public bool Favourite { get; set; }
     }
 }

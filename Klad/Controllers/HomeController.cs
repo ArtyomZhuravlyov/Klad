@@ -22,7 +22,7 @@ namespace Klad.Controllers
         //   public async Task<IActionResult> Index(int page = 1, string category = null)
         public async Task<IActionResult> Index( string category = null,  int page = 1)
         {
-           // var pathBase = HttpContext.Request.PathBase;
+            // var pathBase = HttpContext.Request.PathBase;
             //string table = "";
             //foreach (var header in Request.Headers)
             //{
@@ -31,14 +31,17 @@ namespace Klad.Controllers
             //Response.WriteAsync(String.Format("<table>{0}</table>", table));
             //string userAgent = Request.Headers["User-Agent"].ToString();
             //string referer = Request.Headers["Referer"].ToString();
-
-            int pageSize = 2;   // количество элементов на странице
+            int pageSize;
             IQueryable<Product> source;
 
-            if (category == null || category == "all")
-                source = db.Products; //.Include(x => x.Company);
+            if (category == null)
+            {
+                pageSize = 6;   // количество элементов на странице //main
+                source = db.Products.Where(x => x.Favourite == true); ; //.Include(x => x.Company);
+            }             
             else
             {
+                pageSize = 2;
                 source = db.Products.Where(x => x.Category == category);
             }
 
@@ -54,7 +57,7 @@ namespace Klad.Controllers
             {
                 PageViewModel = pageViewModel,
                 Products = items,
-                ListCategory = Category.category,
+                ListCategory = Category.category, //список всех категорий
                 CurrentCategory = category,
                 Pages = pagesList
             };
