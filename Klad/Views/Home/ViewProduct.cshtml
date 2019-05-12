@@ -32,23 +32,11 @@
                 <td>@Model.Products.ElementAt(0).Category</td>
                 <td>@Model.Products.ElementAt(0).Price</td>
 
-                @{Model.Products.ElementAt(0).Address += ".jpg";}
+                @*@{Model.Products.ElementAt(0).Address += ".jpg";}*@
 
-                <img src="~/images/@Model.Products.ElementAt(0).Address" alt="альтернативный текст">
+                <img src="~/images/@Model.Products.ElementAt(0).Category/@Model.Products.ElementAt(0).Category2/@Model.Products.ElementAt(0).Address" alt="альтернативный текст">
             </tr>
 
-    </table>
-
-
-    <h3>Каталоги</h3>
-    <table class="table-condensed">
-        @foreach (var _category in Model.ListCategory)
-        {
-            <tr>
-                @*<td><a href="~/Home/Index/@_category ">@_category</a></td>*@
-                <td><a href="/@_category ">@_category</a></td>
-            </tr>
-        }
     </table>
 
 </body>

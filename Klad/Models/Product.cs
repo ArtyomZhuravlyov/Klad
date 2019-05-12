@@ -14,6 +14,12 @@ namespace Klad.Models
         public string Description { get; set; }
 
         public string Category { get; set; }
+        //один товар может принадлежать нескольким категориям
+        public string Category2 { get; set; }
+        public string Category3 { get; set; }
+        public string Category4 { get; set; }
+ 
+
         public string Company { get; set; }
         public int Price { get; set; }
         /// <summary>

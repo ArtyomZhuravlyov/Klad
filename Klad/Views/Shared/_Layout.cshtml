@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"]</title>
+    <title>@ViewData["Кладовая Алтая"]</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
 </head>
 <body>
@@ -13,17 +13,38 @@
             <div>
                 <ul class="nav navbar-nav">
                     <li><a href="~/Home/Main" class="navbar-brand">Главная</a></li>
-                    <li><a href="~/Home/Index" class="navbar-brand">Контакты</a></li>
+                    <li><a href="~/Home/Contact" class="navbar-brand">Контакты</a></li>
                 </ul>
             </div>
         </div>
     </nav>
+
+    <h3>Каталоги</h3>
+    <table class="table-condensed">
+
+        @foreach (var _category in Category.category)
+        {
+            <tr>
+                <td><a href="/@_category.Key">@_category.Key</a></td>
+            </tr>
+
+            @foreach (var _category2 in _category.Value)
+            {
+                <tr>
+                    <td><a href="/@_category2 ">@_category2</a></td>
+                </tr>
+            }
+
+        }
+
+
+    </table>
     <!--основной контент-->
     <div class="container body-content">
         @RenderBody()
         <hr />
         <footer>
-            <p>© 2015 - MobileStore</p>
+            <p>© 2019 - Кладовая Алтая</p>
         </footer>
     </div>
 </body>

@@ -29,8 +29,9 @@ namespace Klad.Controllers
             int pageSize;
             IQueryable<Product> source;
      
-            pageSize = 2;
-            source = db.Products.Where(x => x.Category == category);
+            pageSize = 6; 
+            // несколько категорий
+            source = db.Products.Where(x => x.Category == category || x.Category2 == category || x.Category3 == category || x.Category4 == category);
 
             var count = await source.CountAsync();
             var items = await source.Skip((page - 1) * pageSize).Take(pageSize).ToListAsync();
@@ -42,7 +43,6 @@ namespace Klad.Controllers
             {
                 PageViewModel = pageViewModel,
                 Products = items,
-                ListCategory = Category.category, //список всех категорий
                 CurrentCategory = category,
                 Pages = pagesList
             };
@@ -64,13 +64,16 @@ namespace Klad.Controllers
             IndexViewModel viewModel = new IndexViewModel
             {
                 Products = items,
-                ListCategory = Category.category, //список всех категорий
             };
 
             return View(viewModel);
         }
 
-
+        /// <summary>
+        /// Подробный просмотр товара
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public IActionResult ViewProduct(int id)
         {
             IQueryable<Product> source;
@@ -80,7 +83,6 @@ namespace Klad.Controllers
             IndexViewModel viewModel = new IndexViewModel
             {
                 Products = items,
-                ListCategory = Category.category, //список всех категорий
             };
 
            // ViewBag.ProductId = id;

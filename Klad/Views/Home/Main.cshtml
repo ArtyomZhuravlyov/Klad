@@ -27,33 +27,24 @@
             <td>Цена</td>
             <td></td>
         </tr>
-    </table>
 
-    @foreach (var product in Model.Products)
-    {
-    <tr>
-        <td>@product.Name</td>
-        <td>@product.Company</td>
-        <td>@product.Category</td>
-        <td>@product.Price</td>
-        @{product.Address += ".jpg"; }
 
-        <img src="~/images/@product.Address" alt="альтернативный текст">
-        <td><a href="~/Home/ViewProduct/@product.Id">Купить</a></td>
-    </tr>
-        
-    }
-
-    <h3>Каталоги</h3>
-    <table class="table-condensed">
-        @foreach (var _category in Model.ListCategory)
+        @foreach (var product in Model.Products)
         {
             <tr>
-                @*<td><a href="~/Home/Index/@_category ">@_category</a></td>*@
-                <td><a href="/@_category ">@_category</a></td>
-            </tr>
-        }
-    </table>
+                <td>@product.Name</td>
+                <td>@product.Company</td>
+                <td>@product.Category</td>
+                <td>@product.Price</td>
+                @*@{product.Address += ".jpg"; }*@
 
-</body>
+                <img src="~/images/@product.Category/@product.Category2/@product.Address" alt="альтернативный текст">
+                <td><a href="~/Home/ViewProduct/@product.Id">Купить</a></td>
+            </tr>
+      
+        }
+        </table>
+
+
+    </body>
 </html>
