@@ -8,23 +8,20 @@
     ViewData["Title"] = "Каталог товаров";
     //   Layout = null;
 }
+
 <!DOCTYPE html>
 
 <html>
-<head>
-    <title>Магазин смартфонов пока</title>
-</head>
 <body>
-    <h3>Смартфоны</h3>
     <table class="table-condensed">
-        @*Распределяет или выравнивает текст в таблице*@
+        @*@*Распределяет или выравнивает текст в таблице
         <tr>
             <td>Модель</td>
             <td>Производитель</td>
             <td>Категория</td>
             <td>Цена</td>
             <td></td>
-        </tr>
+        </tr>*@
         @foreach (var product in Model.Products)
         {
         <tr>
@@ -36,7 +33,7 @@
             @*@{product.Address += ".jpg";} не понравился этот вариант тем, что могут быть другие расширения поэтому в адресе сразу с раширеинем*@
 
             <img src="~/images/@product.Category/@product.Category2/@product.Address" alt="@product.Category/@product.Category2/@product.Address">
-            <td><a href="~/Home/ViewProduct/@product.Id">Купить</a></td>
+            <td><a href="~/Home/ViewProduct/@product.Id">Подробнее</a></td>
         </tr>
         }
     </table>
