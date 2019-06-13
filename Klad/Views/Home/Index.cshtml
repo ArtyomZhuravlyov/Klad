@@ -15,36 +15,56 @@
 <body>
     <table class="table-condensed">
         @*@*Распределяет или выравнивает текст в таблице
-        <tr>
-            <td>Модель</td>
-            <td>Производитель</td>
-            <td>Категория</td>
-            <td>Цена</td>
-            <td></td>
-        </tr>*@
+            <tr>
+                <td>Модель</td>
+                <td>Производитель</td>
+                <td>Категория</td>
+                <td>Цена</td>
+                <td></td>
+            </tr>*@
         @foreach (var product in Model.Products)
         {
-        <tr>
-            <td>@product.Name</td>
-            <td>@product.Company</td>
-            <td>@product.Category</td>
-            <td>@product.Price</td>
+            <tr>
+                <td>@product.Name</td>
+                <td>@product.Company</td>
+                <td>@product.Category</td>
+                <td>@product.Price</td>
 
-            @*@{product.Address += ".jpg";} не понравился этот вариант тем, что могут быть другие расширения поэтому в адресе сразу с раширеинем*@
+                @*@{product.Address += ".jpg";} не понравился этот вариант тем, что могут быть другие расширения поэтому в адресе сразу с раширеинем*@
 
-            <img src="~/images/@product.Category/@product.Category2/@product.Address" alt="@product.Category/@product.Category2/@product.Address">
-            <td><a href="~/Home/ViewProduct/@product.Id">Подробнее</a></td>
-        </tr>
+                <img src="~/images/@product.Category/@product.Category2/@product.Address" alt="@product.Category/@product.Category2/@product.Address">
+                <td><a href="~/Home/ViewProduct/@product.Id">Подробнее</a></td>
+            </tr>
         }
     </table>
 
-        @foreach (var _page in Model.Pages)
+    @foreach (var _page in Model.Pages)
+    {
+        <tr>
+            <td><a href="/@Model.CurrentCategory/@_page"> @_page</a></td>
+        </tr>
+    }
+
+    @*//описание категорий внизу*@
+    @foreach (var DicCatalogKey in Model.DiscriptionCatalog.Keys)
+    {
+        if (DicCatalogKey == Model.CurrentCategory)
         {
+            foreach (var Value in Model.DiscriptionCatalog[DicCatalogKey])
+            {
+        <table class="table-condensed">
             <tr>
-                <td><a href="/@Model.CurrentCategory/@_page"> @_page</a></td>
+                <td>@Value.Key</td>
             </tr>
+            <tr>
+                <td>@Value.Value</td>
+            </tr>
+        </table>
+               
+            }
         }
+    }
 
 
-    </body>
+</body>
 </html>

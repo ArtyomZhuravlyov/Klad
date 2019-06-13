@@ -44,7 +44,8 @@ namespace Klad.Controllers
                 PageViewModel = pageViewModel,
                 Products = items,
                 CurrentCategory = category,
-                Pages = pagesList
+                Pages = pagesList,
+                DiscriptionCatalog = DescriptionCatalog.DiscriptionCatalog
             };
 
             return View(viewModel); 

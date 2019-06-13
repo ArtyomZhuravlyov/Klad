@@ -15,5 +15,7 @@ namespace Klad.Models
         public string CurrentCategory { get; set; }
 
         public List<int> Pages { get; set; }
+
+        public Dictionary<string, Dictionary<string, string>> DiscriptionCatalog { get;  set; }
     }
 }

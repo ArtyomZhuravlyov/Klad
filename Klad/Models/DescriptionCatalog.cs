@@ -7,14 +7,26 @@ namespace Klad.Models
 {
     public class DescriptionCatalog
     {
-        private static DescriptionCatalog instance { get; set; }
+       // public static DescriptionCatalog instance { get; set; }
         //Не стал писать в базу так как на хостинге можно держать только одну
         /// <summary>
         /// Описание каталогов под товарами
         /// </summary>
-        public  Dictionary<string, Dictionary<string, string>> DiscriptionCatalog { get;private set;}
+        public static Dictionary<string, Dictionary<string, string>> DiscriptionCatalog { get;private set;}
 
-        private DescriptionCatalog()
+        //public Dictionary<string, Dictionary<string, string>> GetDiscriptionCatalog()
+        //{
+        //    return DiscriptionCatalog;
+        //}
+
+        //public static DescriptionCatalog GetInstance()
+        //{
+        //    if (instance == null)
+        //        instance = new DescriptionCatalog();
+        //    return instance;
+        //}
+
+        public DescriptionCatalog()
         {
             DiscriptionCatalog = new Dictionary<string, Dictionary<string, string>>()
             {
@@ -76,11 +88,11 @@ namespace Klad.Models
 
                              "Лечебные алтайские средства для зрения стоят не дороже медикаментов, однако их стоимость более оправдана. " +
                              "Безопасность и мягкое воздействие натурального состава гораздо результативнее справляется с такими задачами, как:" +
-                             "\nадаптация чувствительных элементов глаза к чрезмерно яркому или интенсивному освещению;" +
-                             "\nустранение воспалительных процессов; " +
-                             "\nвосстановление остроты зрения; подпитка минералами и витаминами; " +
-                             "\nулучшение кровотока;" +
-                             "\nзащита глаз от переутомления."
+                             "\r\nадаптация чувствительных элементов глаза к чрезмерно яркому или интенсивному освещению;" +
+                             "\r\nустранение воспалительных процессов; " +
+                             "\r\nвосстановление остроты зрения; подпитка минералами и витаминами; " +
+                             "\r\nулучшение кровотока;" +
+                             "\r\nзащита глаз от переутомления."
                          }
                      }
                 },
@@ -411,12 +423,7 @@ namespace Klad.Models
         }
 
 
-        public static DescriptionCatalog GetInstance()
-        {
-            if (instance == null)
-                instance = new DescriptionCatalog();
-            return instance;
-        }
+       
                     
     }
 }

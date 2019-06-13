@@ -18,6 +18,7 @@ namespace Klad
         {
             //   CreateWebHostBuilder(args).Build().Run();
             var host = CreateWebHostBuilder(args).Build();
+             new DescriptionCatalog();
 
             using (var scope = host.Services.CreateScope())
             {
