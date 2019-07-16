@@ -12,16 +12,10 @@
 <!DOCTYPE html>
 
 <html>
+
 <body>
     <table class="table-condensed">
-        @*@*Распределяет или выравнивает текст в таблице
-            <tr>
-                <td>Модель</td>
-                <td>Производитель</td>
-                <td>Категория</td>
-                <td>Цена</td>
-                <td></td>
-            </tr>*@
+
         @foreach (var product in Model.Products)
         {
             <tr>
@@ -37,14 +31,17 @@
             </tr>
         }
     </table>
+    <div>
 
-    @foreach (var _page in Model.Pages)
-    {
-        <tr>
-            <td><a href="/@Model.CurrentCategory/@_page"> @_page</a></td>
-        </tr>
-    }
+        @foreach (var _page in Model.Pages)
+        {<table>
+                <tr>
+                    <td><a href="/@Model.CurrentCategory/@_page"> @_page</a></td>
+                </tr>
+            </table>
+        }
 
+    </div>
     @*//описание категорий внизу*@
     @foreach (var DicCatalogKey in Model.DiscriptionCatalog.Keys)
     {
@@ -52,15 +49,15 @@
         {
             foreach (var Value in Model.DiscriptionCatalog[DicCatalogKey])
             {
-        <table class="table-condensed">
-            <tr>
-                <td>@Value.Key</td>
-            </tr>
-            <tr>
-                <td>@Value.Value</td>
-            </tr>
-        </table>
-               
+                <table class="table-condensed">
+                    <tr>
+                        <td>@Value.Key</td>
+                    </tr>
+                    <tr>
+                        <td>@Value.Value</td>
+                    </tr>
+                </table>
+
             }
         }
     }

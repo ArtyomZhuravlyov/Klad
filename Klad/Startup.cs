@@ -87,9 +87,13 @@ namespace Klad
                 //    constraints: new { page = @"\d+" }
                 //);
 
+                //routes.MapRoute(null,
+                //"{category}",
+                //new { controller = "Home", action = "Index", page = 1 });
+
                 routes.MapRoute(null,
                 "{category}",
-                new { controller = "Home", action = "Index", page = 1 });
+                new { controller = "Home", action = "Index" });
 
 
                 //routes.MapRoute(null,
@@ -100,15 +104,17 @@ namespace Klad
 
                 routes.MapRoute(null,
                "{category}/{page}",
-               new { controller = "Home", action = "Index" },
-               new { page = @"\d+" });
+               new { controller = "Home", action = "Index" }
+               //,
+               //new { page = @"\d+" }
+               );
 
 
-                routes.MapRoute(null,
-                 "{category}/{page}/{product}",
-                 new { controller = "Home", action = "ViewProduct" },
-                 new { page = @"\d+" }
-                 );
+                // routes.MapRoute(null,
+                //  "{category}/{page}/{product}",
+                //  new { controller = "Home", action = "ViewProduct" },
+                //  new { page = @"\d+" }
+                //  );
 
                 //   routes.MapRoute(null,
                 //"{category}/{page}/{product}",
