@@ -26,16 +26,17 @@
             <td></td>
         </tr>
 
-            <tr>
-                <td>@Model.Products.ElementAt(0).Name</td>
-                <td>@Model.Products.ElementAt(0).Company</td>
-                <td>@Model.Products.ElementAt(0).Category</td>
-                <td>@Model.Products.ElementAt(0).Price</td>
+        <tr>
+            <td>@Model.Products.ElementAt(0).Name</td>
+            <td>@Model.Products.ElementAt(0).Company</td>
+            <td>@Model.Products.ElementAt(0).Category</td>
+            <td>@Model.Products.ElementAt(0).Price</td>
+            <td>@Model.Products.ElementAt(0).Description</td>
 
-                @*@{Model.Products.ElementAt(0).Address += ".jpg";}*@
+            @*@{Model.Products.ElementAt(0).Address += ".jpg";}*@
 
-                <img src="~/images/@Model.Products.ElementAt(0).Category/@Model.Products.ElementAt(0).Category2/@Model.Products.ElementAt(0).Address" alt="альтернативный текст">
-            </tr>
+            <img src="~/images/@Model.Products.ElementAt(0).Category/@Model.Products.ElementAt(0).Category2/@Model.Products.ElementAt(0).Address" alt="альтернативный текст">
+        </tr>
 
     </table>
 

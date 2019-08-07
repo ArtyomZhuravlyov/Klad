@@ -5,53 +5,73 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Кладовая Алтая"]</title>
     @*<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />*@
-    
-        @*<style>
-  
+
+    @*<style>
+
         </style>*@
 
     <link rel="stylesheet" href="~/css/StyleSheet.css" />
+    <link rel="stylesheet" href="~/css/Header_Background.css" />
+
 </head>
 <body>
-    <!--меню-->
-    <nav class="navbar navbar-inverse">
-        <div class="container">
+    <div class="ColorHeader">
+        <!--меню-->
+        
+        <div class="GeneralHeader">
+            <div class="ColorHeader posHeader">
+                <div class="test_color">
+                    <a href="~/Home/Main" class="ColourChange poseMain">ГЛАВНАЯ</a>
+                    <a href="~/Home/Contact" class="ColourChange poseContact">КОНТАКТЫ</a>
+                </div>
+
+            </div>
+            <!--вторая полоса-->
+            <div class="line_2">
+
+            </div>
             <div>
-                <ul class="nav navbar-nav">
-                    <li><a href="~/Home/Main" class="navbar-brand">Главная</a></li>
-                    <li><a href="~/Home/Contact" class="navbar-brand">Контакты</a></li>
-                </ul>
+                <nav class="positionNav">
+                    <ul class="topmenu">
+                        @foreach (var _category in Category.category)
+                        {
+                            <li>
+                                <a href="/@_category.Key">@_category.Key</a>
+                                <ul class="submenu">
+                                    @foreach (var _category2 in _category.Value)
+                                    {
+                                        <li>  <a href="/@_category2 ">@_category2</a></li>
+                                    }
+                                </ul>
+                            </li>
+                        }
+                    </ul>
+                </nav>
             </div>
         </div>
-    </nav>
+        
 
-    <h3>Каталоги</h3>
-    @*<table class="table-condensed">*@
-
-        @foreach (var _category in Category.category)
-        {
-            <tr>
-                <td><a href="/@_category.Key">@_category.Key</a></td>
-            </tr>
-
-            @foreach (var _category2 in _category.Value)
-            {
-                <tr>
-                    <td><a href="/@_category2 ">@_category2</a></td>
-                </tr>
-            }
-
-        }
+        <main class="backgroundbody">
+            <h1>privet</h1>
+        </main>
+        
 
 
-    @*</table>*@
-    <!--основной контент-->
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>© 2019 - Кладовая Алтая</p>
-        </footer>
+            @*<table class="table-condensed">*@
+            
+
+            @*</table>*@
+            <!--основной контент-->
+            <div class="container body-content">
+                @RenderBody()
+                
+                <div class="footer1">
+                    © 2019 - Кладовая Алтая  @*<p>© 2019 - Кладовая Алтая</p>*@
+                </div>
+                @*<footer class="footer1">
+                    <p>© 2019 - Кладовая Алтая</p>
+                </footer>*@
+            </div>
     </div>
 </body>
 </html>
