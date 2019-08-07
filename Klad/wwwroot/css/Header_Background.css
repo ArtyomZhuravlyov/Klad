@@ -17,9 +17,9 @@
     width: 200px;
     
     margin-right: 200px;*/
-    padding-top: 40px;
-    //padding-bottom: 30px;
-    height: 60px;
+    padding-top: 30px;
+    
+    height: 50px;
 }
 
 .poseContact {
@@ -98,7 +98,7 @@
     display: inline-block;
     /*color:#ffeb3b;*/
     text-decoration: none;
-    font-size: 22px;
+    font-size: 18px;
 }
 
     .ColourChange:hover {
