@@ -12,9 +12,11 @@
 <!DOCTYPE html>
 
 <html>
-
+<head>
+    <link rel="stylesheet" href="~/css/Catalog.css" />
+</head>
 <body>
-    <table class="table-condensed">
+    @*<table class="table-condensed">
 
         @foreach (var product in Model.Products)
         {
@@ -22,15 +24,38 @@
                 <td>@product.Name</td>
                 <td>@product.Company</td>
                 <td>@product.Category</td>
-                <td>@product.Price</td>
+                <td>@product.Price</td>*@
 
-                @*@{product.Address += ".jpg";} не понравился этот вариант тем, что могут быть другие расширения поэтому в адресе сразу с раширеинем*@
+    @*@{product.Address += ".jpg";} не понравился этот вариант тем, что могут быть другие расширения поэтому в адресе сразу с раширеинем*@
 
-                <img src="~/images/@product.Category/@product.Category2/@product.Address" alt="@product.Category/@product.Category2/@product.Address">
-                <td><a href="~/Home/ViewProduct/@product.Id">Подробнее</a></td>
-            </tr>
+    @*<img src="~/images/@product.Category/@product.Category2/@product.Address" alt="@product.Category/@product.Category2/@product.Address">
+                    <td><a href="~/Home/ViewProduct/@product.Id">Подробнее</a></td>
+                </tr>
+            }
+        </table>*@
+    @*<div class="stars"></div>*@
+
+    <div class="parent">
+        @foreach (var product in Model.Products)
+        {
+            <div class="border">
+                <div class="wrap">
+                    <div class="product-wrap">
+                        <a href=""><img src="~/images/@product.Category/@product.Category2/@product.Address" ></a>
+                    </div>
+                    <div class="loop-action">
+                        <a href="" class="add-to-cart">Быстрый просмотр</a>
+                        <a href="" class="loop-add-to-cart">В корзину</a>
+                    </div>
+                </div>
+
+                <div class="product-info">
+                    <h3 class="product-title">@product.Name</h3>
+                    <div class="price">&#8381; @product.Price </div>
+                </div>
+            </div>
         }
-    </table>
+    </div>
     <div>
 
         @foreach (var _page in Model.Pages)

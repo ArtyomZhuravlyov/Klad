@@ -29,7 +29,7 @@ namespace Klad.Controllers
             int pageSize;
             IQueryable<Product> source;
      
-            pageSize = 6; 
+            pageSize = 12; 
             // несколько категорий
             source = db.Products.Where(x => x.Category == category || x.Category2 == category || x.Category3 == category || x.Category4 == category);
 
