@@ -14,7 +14,7 @@ nav {
     background: white;
     /*margin-top: 500px;*/
     /*opacity: 0.1;*/
-    margin-bottom:15px;
+    margin-bottom:15px; /* нижний див*/
 }
 
 * {
@@ -41,7 +41,8 @@ nav a {
 
 .topmenu {
     text-align: center;
-    padding: 5px 0;
+
+    /*padding: 5px 0;*/
 }
 
     .topmenu > li {
