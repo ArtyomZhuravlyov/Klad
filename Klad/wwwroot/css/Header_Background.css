@@ -8,10 +8,6 @@
     background: #f0f0f0;
 }*/
 
-* {
-    margin: 0;
-    padding: 0;
-}
 
 .posHeader {
     /*float: right;
@@ -31,6 +27,7 @@
     font-weight: bold;
     letter-spacing: 1px;
     font-family: 'Exo 2', sans-serif;
+    /*margin-left:150px;*/
 }
 /**testcolor*/
 .test_color > a {
@@ -41,6 +38,7 @@
     margin-bottom: 1em;
     padding: 30px;
     text-decoration: none;
+    
 }
 
 .poseMain {
@@ -48,6 +46,7 @@
     font-weight: bold;
     letter-spacing: 1px;
     font-family: 'Exo 2', sans-serif;
+    margin-left: 390px;
 }
 
 /*подчеркивание текста*/
@@ -95,7 +94,7 @@
     /* background: #ffc;  Цвет фона */
     padding: 2px; /* Поля вокруг текста */
     transition: 0.1s linear;
-    / /*/Время изменения  line-height: 1;
+     /*/Время изменения  line-height: 1;
     display: inline-block;
     /*color:#ffeb3b;*/
     text-decoration: none;

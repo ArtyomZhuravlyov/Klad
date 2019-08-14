@@ -14,6 +14,7 @@
 <html>
 <head>
     <link rel="stylesheet" href="~/css/Catalog.css" />
+    <link rel="stylesheet" href="~/css/Pages2.css" />
 </head>
 <body>
     @*<table class="table-condensed">
@@ -41,7 +42,7 @@
             <div class="border">
                 <div class="wrap">
                     <div class="product-wrap">
-                        <a href=""><img src="~/images/@product.Category/@product.Category2/@product.Address" ></a>
+                        <a href=""><img src="~/images/@product.Category/@product.Category2/@product.Address"></a>
                     </div>
                     <div class="loop-action">
                         <a href="" class="add-to-cart">Быстрый просмотр</a>
@@ -57,16 +58,27 @@
         }
     </div>
     <div>
+        <ul class="pagination modal-1">
+            @foreach (var _page in Model.Pages)
+            {
+                @*<li class="liPages btn btn-default btn">
+                <i>
+                    <a href="/@Model.CurrentCategory/@_page"> @_page</a>
+                </i>
+            </li>*@
 
-        @foreach (var _page in Model.Pages)
-        {<table>
-                <tr>
-                    <td><a href="/@Model.CurrentCategory/@_page"> @_page</a></td>
-                </tr>
-            </table>
-        }
-
+                @if (Model.PageViewModel.PageNumber == _page)
+                { 
+                    <li> <a href="/@Model.CurrentCategory/@_page" class="active">@_page</a></li>
+                }
+                else{
+                <li> <a href="/@Model.CurrentCategory/@_page" >@_page</a></li>
+                }
+            }
+        </ul>
     </div>
+
+
     @*//описание категорий внизу*@
     @foreach (var DicCatalogKey in Model.DiscriptionCatalog.Keys)
     {

@@ -15,7 +15,13 @@ namespace Klad.Models
         /// Количество товаров на одной странице
         /// </summary>
         public int pageSize { get; private set; }
+        /// <summary>
+        /// Номер текущей страницы
+        /// </summary>
         public int PageNumber { get; private set; }
+        /// <summary>
+        /// Количество всех страниц по данной категории
+        /// </summary>
         public int TotalPages { get; private set; }
 
         public PageViewModel(int count, int pageNumber, int pageSize)

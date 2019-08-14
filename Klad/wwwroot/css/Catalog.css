@@ -2,7 +2,6 @@
     box-sizing: border-box;
 }*/
 .parent {
-    position: center;
     display: flex;
     flex-wrap: wrap;
     align-content: flex-start;

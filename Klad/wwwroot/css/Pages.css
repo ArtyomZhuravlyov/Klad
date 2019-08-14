@@ -1,0 +1,95 @@
+﻿.posCenter {
+    /*margin: 0 auto;*/
+    /*margin: 0 auto;*/
+
+}
+
+.ulPages {
+    /*margin: 0 0 20px 0;*/
+    /*margin: 0 auto;*/
+    margin-left:560px;
+    /*padding: 0;*/
+    font-size: 0;
+    list-style: none;
+    cursor: default;
+    border-radius: 3px;
+    font-weight: 700;
+}
+
+.liPages {
+    display: inline-block;
+    font-size: 20px;
+    color: white;
+    height: 50px;
+    line-height: 50px;
+    display: inline-block;
+    padding: 0 20px;
+    -webkit-transform: skew(-15deg);
+    -moz-transform: skew(-15deg);
+    transform: skew(-15deg);
+    background-color: #363636;
+    background-image: -webkit-linear-gradient(top, #3b3b3b, #323232);
+    background-image: linear-gradient(to bottom, #3b3b3b, #323232);
+    background-repeat: repeat-x;
+    margin-right: -1px;
+    text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.8);
+}
+
+    .liPages i {
+        border: 1px solid #333; /* Рамка */
+        display: block;
+        font-style: normal;
+        pointer-effects: none;
+        -webkit-transform: skew(15deg);
+        -moz-transform: skew(15deg);
+        transform: skew(15deg);
+    }
+
+    .liPages:first-child:before, .liPages:last-child:after {
+        content: '';
+        position: absolute;
+        display: block;
+        top: 0px;
+        left: -8px;
+        width: 15px;
+        height: 50px;
+        -webkit-transform: skew(15deg);
+        border-radius: 3px 0 0 3px;
+        background-color: #363636;
+        background-image: -webkit-linear-gradient(top, #3b3b3b, #323232);
+        background-image: linear-gradient(to bottom, #3b3b3b, #323232);
+        background-repeat: repeat-x;
+    }
+
+    .liPages:last-child:after {
+        left: auto;
+        right: -8px;
+        border-radius: 0 3px 3px 0;
+    }
+
+    .liPages:hover, .liPages.active {
+        background-color: #5fa9c5;
+        background-image: -webkit-linear-gradient(top, #74d7fc, #4b7c8e);
+        background-image: linear-gradient(to bottom, #74d7fc, #4b7c8e);
+        background-repeat: repeat-x;
+        color: black;
+        text-shadow: 0 1px 1px rgba(255, 255, 255, 0.5);
+    }
+
+    .liPages:first-child:hover:before,
+    .liPages:last-child:hover:after,
+    .liPages:first-child.active:before,
+    .liPages:last-child.active:after {
+        background-color: #5fa9c5;
+        background-image: -webkit-linear-gradient(top, #74d7fc, #4b7c8e);
+        background-image: linear-gradient(to bottom, #74d7fc, #4b7c8e);
+        background-repeat: repeat-x;
+    }
+
+    .liPages:first-child i {
+        margin-left: -5px;
+    }
+
+    .liPages:last-child i {
+        margin-right: -5px;
+    }
