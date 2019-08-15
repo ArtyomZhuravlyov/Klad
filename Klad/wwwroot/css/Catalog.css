@@ -9,6 +9,7 @@
     width: 1100px;
     margin: 0 auto;
     padding-left:60px;
+
     /*justify-content:space-around;*/
 }
 
@@ -19,7 +20,7 @@
     padding: 30px;
     border: 1px solid #F1E7E8;
     margin: 15px;
- 
+    box-shadow: 0 0 10px rgba(0,0,0,0.5); /* Параметры тени */
     /*height: 500px;*/
 }
 
@@ -30,6 +31,7 @@
 
 .product-wrap {
     position: relative;
+    box-sizing: border-box;
 }
 
     .product-wrap:after {

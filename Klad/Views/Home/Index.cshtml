@@ -17,25 +17,8 @@
     <link rel="stylesheet" href="~/css/Pages2.css" />
 </head>
 <body>
-    @*<table class="table-condensed">
 
-        @foreach (var product in Model.Products)
-        {
-            <tr>
-                <td>@product.Name</td>
-                <td>@product.Company</td>
-                <td>@product.Category</td>
-                <td>@product.Price</td>*@
-
-    @*@{product.Address += ".jpg";} не понравился этот вариант тем, что могут быть другие расширения поэтому в адресе сразу с раширеинем*@
-
-    @*<img src="~/images/@product.Category/@product.Category2/@product.Address" alt="@product.Category/@product.Category2/@product.Address">
-                    <td><a href="~/Home/ViewProduct/@product.Id">Подробнее</a></td>
-                </tr>
-            }
-        </table>*@
-    @*<div class="stars"></div>*@
-
+    @*каталог*@ 
     <div class="parent">
         @foreach (var product in Model.Products)
         {
@@ -57,23 +40,30 @@
             </div>
         }
     </div>
+
+    @*постраничная навигация*@
     <div>
         <ul class="pagination modal-1">
-            @foreach (var _page in Model.Pages)
+            <li> <a href="/@Model.CurrentCategory/1">Первая</a></li>
+            @if (Model.Pages.FirstArrow == true)
             {
-                @*<li class="liPages btn btn-default btn">
-                <i>
-                    <a href="/@Model.CurrentCategory/@_page"> @_page</a>
-                </i>
-            </li>*@
+                <li> <a href="/@Model.CurrentCategory/@(Model.Pages.CurrentPage-1)" class="prev">&laquo</a></li>
+            }
+            @for (int i = Model.Pages.FirstPage; i <= Model.Pages.LastPage; i++)
+            {
+                @if (Model.Pages.CurrentPage == i)
+                {
+                    <li> <a href="/@Model.CurrentCategory/@i" class="active">@i</a></li>
+                }
+                else
+                {
+                    <li> <a href="/@Model.CurrentCategory/@i">@i</a></li>
+                }
+            }
 
-                @if (Model.PageViewModel.PageNumber == _page)
-                { 
-                    <li> <a href="/@Model.CurrentCategory/@_page" class="active">@_page</a></li>
-                }
-                else{
-                <li> <a href="/@Model.CurrentCategory/@_page" >@_page</a></li>
-                }
+            @if (Model.Pages.LastArrow == true)
+            {
+                <li> <a href="/@Model.CurrentCategory/@(Model.Pages.CurrentPage+1)" class="next">&raquo;</a></li>
             }
         </ul>
     </div>

@@ -37,14 +37,14 @@ namespace Klad.Controllers
             var items = await source.Skip((page - 1) * pageSize).Take(pageSize).ToListAsync();
 
             PageViewModel pageViewModel = new PageViewModel(count, page, pageSize);
-            List<int> pagesList = new PagesLink(pageViewModel)._pages;
+            PagesLink pagesLink = new PagesLink(pageViewModel);
 
             IndexViewModel viewModel = new IndexViewModel
             {
-                PageViewModel = pageViewModel,
+                //PageViewModel = pageViewModel,
                 Products = items,
                 CurrentCategory = category,
-                Pages = pagesList,
+                Pages = pagesLink,
                 DiscriptionCatalog = DescriptionCatalog.DiscriptionCatalog
             };
 
