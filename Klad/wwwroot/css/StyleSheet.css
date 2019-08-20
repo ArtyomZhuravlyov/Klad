@@ -1,11 +1,12 @@
-﻿/*body {
+﻿body {
     padding: 0;
     margin: 0;
     overflow: auto;
     height: 100%;
+    padding-right: 0px;
 }
 
-html {
+/*html {
     overflow: hidden;
     height: 100%;
 }*/
@@ -22,9 +23,7 @@ nav {
     padding: 0;
 }
 
-.positionNav {
-    /*margin-top: 500px;*/
-}
+
 
 /*nav ul {
     list-style: none;
@@ -42,8 +41,8 @@ nav a {
 .topmenu {
     text-align: center;
 
-    /*padding: 5px 0;*/
-}
+    /*padding: 5px 0;
+}*/
 
     /*.topmenu > li {
         display: inline-block;

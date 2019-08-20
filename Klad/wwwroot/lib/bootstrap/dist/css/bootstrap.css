@@ -4,7 +4,7 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
-html {
+/*html {
   font-family: sans-serif;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -26,7 +26,7 @@ nav,
 section,
 summary {
   display: block;
-}
+}*/
 audio,
 canvas,
 progress,
@@ -42,7 +42,7 @@ audio:not([controls]) {
 template {
   display: none;
 }
-a {
+/*a {
   background-color: transparent;
 }
 a:active,
@@ -55,7 +55,7 @@ abbr[title] {
   -webkit-text-decoration: underline dotted;
   -moz-text-decoration: underline dotted;
   text-decoration: underline dotted;
-}
+}*/
 b,
 strong {
   font-weight: bold;
@@ -202,7 +202,7 @@ th {
     -webkit-box-shadow: none !important;
     box-shadow: none !important;
   }
-  a,
+  /*a,
   a:visited {
     text-decoration: underline;
   }
@@ -215,7 +215,7 @@ th {
   a[href^="#"]:after,
   a[href^="javascript:"]:after {
     content: "";
-  }
+  }*/
   pre,
   blockquote {
     border: 1px solid #999;
@@ -225,12 +225,12 @@ th {
     display: table-header-group;
   }
   tr,
-  img {
+  /*img {
     page-break-inside: avoid;
   }
   img {
     max-width: 100% !important;
-  }
+  }*/
   p,
   h2,
   h3 {
@@ -1066,7 +1066,7 @@ th {
 .glyphicon-menu-up:before {
   content: "\e260";
 }
-* {
+/** {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -1108,7 +1108,7 @@ a:focus {
 a:focus {
   outline: 5px auto -webkit-focus-ring-color;
   outline-offset: -2px;
-}
+}*/
 figure {
   margin: 0;
 }
@@ -1412,7 +1412,7 @@ a.bg-danger:focus {
   margin: 40px 0 20px;
   border-bottom: 1px solid #eeeeee;
 }
-ul,
+/*ul,
 ol {
   margin-top: 0;
   margin-bottom: 10px;
@@ -1422,7 +1422,7 @@ ol ul,
 ul ol,
 ol ol {
   margin-bottom: 0;
-}
+}*/
 .list-unstyled {
   padding-left: 0;
   list-style: none;
@@ -1580,7 +1580,7 @@ pre code {
   max-height: 340px;
   overflow-y: scroll;
 }
-.container {
+/*.container {
   padding-right: 15px;
   padding-left: 15px;
   margin-right: auto;
@@ -1600,7 +1600,7 @@ pre code {
   .container {
     width: 1170px;
   }
-}
+}*/
 .container-fluid {
   padding-right: 15px;
   padding-left: 15px;
@@ -4784,12 +4784,12 @@ fieldset[disabled] .navbar-inverse .btn-link:focus {
 .breadcrumb > .active {
   color: #777777;
 }
-.pagination {
+/*.pagination {
   display: inline-block;
   padding-left: 0;
   margin: 20px 0;
   border-radius: 4px;
-}
+}*/
 .pagination > li {
   display: inline;
 }
@@ -5941,9 +5941,9 @@ button.close {
   -moz-appearance: none;
   appearance: none;
 }
-.modal-open {
+/*.modal-open {
   overflow: hidden;
-}
+}*/
 .modal {
   position: fixed;
   top: 0;
@@ -6047,11 +6047,11 @@ button.close {
   height: 50px;
   overflow: scroll;
 }
-@media (min-width: 768px) {
+/*@media (min-width: 768px) {
   .modal-dialog {
     width: 600px;
     margin: 30px auto;
-  }
+  }*/
   .modal-content {
     -webkit-box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);

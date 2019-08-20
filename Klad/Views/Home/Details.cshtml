@@ -1,0 +1,40 @@
+﻿@model Product
+<head>
+    <link rel="stylesheet" href="~/css/Catalog.css" />
+    <link rel="stylesheet" href="~/css/Pages2.css" />
+    <link href="https://fonts.googleapis.com/css?family=Nunito:300,400,400i,700" rel="stylesheet">
+    @*<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">*@
+
+    @*бутстрап*@
+    <link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+
+    @*http://localhost:44338/ЗДОРОВЬЕ/lib/bootstrap/dist/js/bootstrap.js*@
+    @*<link rel="stylesheet" href="~/css/Catalog.css" />*@
+    @*<link rel="stylesheet" href="~/css/ModalWindow.css" />*@
+</head>
+<div class="modal-content MyTop minWidthModal ">
+    <div class="modal-header textHeadModal">
+        <button class="close buttonModal" data-dismiss="modal" area-hidden="true">X</button>
+        <h4>@Model.Name</h4>
+    </div>
+    <div class="modal-body flexModal">
+        <div >
+            <a href=""><img src="~/images/Каталог товаров/@Model.Address"></a>
+        </div>
+        <div class="DescriptionModal textModal">
+            <a href="" class="textModal">@Model.Description </a>
+        </div>
+        @*<dl class="dl-horizontal">
+            <dt>Название модели:</dt>
+            <dd>@Html.DisplayFor(model => model.Name)</dd>
+
+            <dt>Производитель</dt>
+            <dd>@Html.DisplayFor(model => model.Company)</dd>
+
+            <dt>Год выпуска</dt>
+            <dd>@Html.DisplayFor(model => model.Category)</dd>
+        </dl>*@
+    </div>
+</div>

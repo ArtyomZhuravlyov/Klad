@@ -15,31 +15,74 @@
 <head>
     <link rel="stylesheet" href="~/css/Catalog.css" />
     <link rel="stylesheet" href="~/css/Pages2.css" />
+    <link href="https://fonts.googleapis.com/css?family=Nunito:300,400,400i,700" rel="stylesheet">
+    @*<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css"> пакость*@ 
+    <link rel="stylesheet" href="~/css/ModalWindow.css">
+    @*бутстрап*@
+    <link href="lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+    <script src="lib/jquery/dist/jquery.js"></script>
+    <script src="lib/bootstrap/dist/js/bootstrap.js"></script>
+
+
+    @*<link rel="stylesheet" href="~/css/StyleSheet.css" />
+    <link rel="stylesheet" href="~/css/Header_Background.css" />
+    <link rel="stylesheet" href="~/css/Search.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="~/css/MegaMenu.css" />*@
+
 </head>
 <body>
 
-    @*каталог*@ 
+    @*каталог*@
     <div class="parent">
         @foreach (var product in Model.Products)
         {
             <div class="border">
                 <div class="wrap">
                     <div class="product-wrap">
-                        <a href=""><img src="~/images/@product.Category/@product.Category2/@product.Address"></a>
+                        @*<a href=""><img src="~/images/@product.Category/@product.Category2/@product.Address"></a> изменилась в корне вся система из-за ручного мега меню*@
+                        <a href=""><img src="~/images/Каталог товаров/@product.Address" class="imgCatalog"></a>
                     </div>
                     <div class="loop-action">
-                        <a href="" class="add-to-cart">Быстрый просмотр</a>
+                        @*<a href=" @Html.ActionLink(c.Name, "Details",
+                            new { id = c.Id }, new { @class = "compItem" })" class="add-to-cart btn open-modal" data-modal="#modal1">Быстрый просмотр</a>*@
+                        @Html.ActionLink("Быстрый просмотр", "Details",
+                            new { id = product.Id }, new { @class = "compItem add-to-cart btn open-modal" } ) 
                         <a href="" class="loop-add-to-cart">В корзину</a>
                     </div>
                 </div>
 
                 <div class="product-info">
-                    <h3 class="product-title">@product.Name</h3>
-                    <div class="price">&#8381; @product.Price </div>
-                </div>
+                        @*<div class="alert alert-success">Задача успешно завершена</div>*@
+                        <h3 class="product-title">@product.Name</h3>
+                        @*<div class="price">&#8381; @product.Price </div>*@
+                 </div>
+
+                @*<ul>
+                    @foreach (var c in Model.Products)
+                    {
+                        <li>
+                            @Html.ActionLink(c.Name, "Details",
+                            new { id = c.Id }, new { @class = "compItem" })
+                        </li>
+                    }
+                </ul>*@
             </div>
+
         }
     </div>
+
+    @*<div class='modal' id='modal1'>
+            <div class='content'>
+                <h1 class='title'>This is a modal</h1>
+                <p>
+                    @product.Description
+                </p>
+                <a class='btn close-modal' data-modal="#modal1" href="#">K Bye</a>
+            </div>
+        </div>*@
+
+
 
     @*постраничная навигация*@
     <div>
@@ -88,7 +131,32 @@
             }
         }
     }
+     <div id="modDialog" class="modal fade">
+                <div id="dialogContent" class="modal-dialog"></div>
+     </div>
 
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js'></script>
 
+    <script src="js/index.js"></script>
+
+    @*для модального окна*@
+    @*@section scripts
+        {*@
+    <script type="text/javascript">
+
+        $(function () {
+            $.ajaxSetup({ cache: false });
+            $(".compItem").click(function (e) {
+
+                e.preventDefault();
+                $.get(this.href, function (data) {
+                    $('#dialogContent').html(data);
+                    $('#modDialog').modal('show');
+                });
+            });
+        })
+        
+    </script>
+    @*}*@
 </body>
 </html>

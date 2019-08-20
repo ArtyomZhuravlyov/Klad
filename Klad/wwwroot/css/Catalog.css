@@ -1,6 +1,14 @@
 ﻿/*div {
     box-sizing: border-box;
 }*/
+.center {
+    margin: 0 auto;
+}
+
+.MyTop{
+    margin-top:130px;
+}
+
 .parent {
     display: flex;
     flex-wrap: wrap;
@@ -13,6 +21,15 @@
     /*justify-content:space-around;*/
 }
 
+.imgCatalog {
+    height: auto;
+    width: 100%;
+    /* еще больше контроля с max-width */
+    max-width: 500px;
+    min-height: 220px;
+    max-height: 300px;
+}
+
 .border {
     width: 250px;
     margin: 0 auto;
@@ -21,11 +38,12 @@
     border: 1px solid #F1E7E8;
     margin: 15px;
     box-shadow: 0 0 10px rgba(0,0,0,0.5); /* Параметры тени */
+    max-height: 500px;
     /*height: 500px;*/
 }
 
 .wrap {
-    height: 80%;
+    height: 300px;
     position: relative;
 }
 

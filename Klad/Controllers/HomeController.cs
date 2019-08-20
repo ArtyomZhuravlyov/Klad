@@ -29,7 +29,7 @@ namespace Klad.Controllers
             int pageSize;
             IQueryable<Product> source;
      
-            pageSize = 12; 
+            pageSize = 18; 
             // несколько категорий
             source = db.Products.Where(x => x.Category == category || x.Category2 == category || x.Category3 == category || x.Category4 == category);
 
@@ -49,6 +49,15 @@ namespace Klad.Controllers
             };
 
             return View(viewModel); 
+        }
+
+        public ActionResult Details(int id, int l = 50)
+        {
+            Product product = (Product)db.Products.FirstOrDefault(x => x.Id == id);
+            //Computer c = comps.FirstOrDefault(com => com.Id == id);
+            //if (c != null)
+            //    return PartialView(c);
+            return PartialView(product);
         }
 
         /// <summary>

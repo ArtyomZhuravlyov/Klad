@@ -4,11 +4,9 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Кладовая Алтая"]</title>
-    @*<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />*@
-
-    @*<style>
-
-        </style>*@
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+    @*@Styles.Render("~/Content/css")
+        @Scripts.Render("~/bundles/modernizr")*@
 
     <link rel="stylesheet" href="~/css/StyleSheet.css" />
     <link rel="stylesheet" href="~/css/Header_Background.css" />
@@ -16,297 +14,329 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="~/css/MegaMenu.css" />
 
+    @*бутстрап*@
+    @*<link href="lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+    <script src="lib/jquery/dist/jquery.js"></script>
+    <script src="lib/bootstrap/dist/js/bootstrap.js"></script>*@
+
 </head>
-<body>
-    <div class="ColorHeader">
-        <!--меню-->
-        
-        <div class="GeneralHeader">
-            <div class="ColorHeader posHeader">
-                <div class="test_color">
-                    <a href="~/Home/Main" class="ColourChange poseMain underline">ГЛАВНАЯ</a>
-                    <a href="~/Home/Contact" class="ColourChange poseContact underline">КОНТАКТЫ</a>
-                    <div class="divSearch">
-                        <form class="formSearch">
-                            <input type="text" placeholder="Искать здесь...">
-                            <button type="submit"></button>
-                        </form>
+        <body>
+            <div class="ColorHeader">
+                <!--меню-->
+
+                <div class="GeneralHeader">
+                    <div class="ColorHeader posHeader">
+                        <div class="test_color">
+                            <a href="~/Home/Main" class="ColourChange poseMain underline">ГЛАВНАЯ</a>
+                            <a href="~/Home/Contact" class="ColourChange poseContact underline">КОНТАКТЫ</a>
+                            <div class="divSearch">
+                                <form class="formSearch">
+                                    <input type="text" placeholder="Искать здесь...">
+                                    <button type="submit"></button>
+                                </form>
+                            </div>
+                        </div>
+
+
                     </div>
-                </div>
+
+                    <!--вторая полоса-->
+                    <div class="line_2">
+
+                    </div>
+                    <div >
+                        <nav class="container">
+                            <ul class="top-menu">
+                                <li>
+                                    <a href="/ЗДОРОВЬЕ">ЗДОРОВЬЕ</a>
+                                    <ul class="submenu">
+                                        <li>
+                                            <ul>
+                                                <li><a href=""></a></li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <ul>
+                                                <li><a href="/ЗДОРОВЬЕБорьба с лишним весом">Борьба с лишним весом</a></li>
+                                                <li><a href="/ЗДОРОВЬЕДыхательная система">Дыхательная система</a></li>
+                                                <li><a href="/ЗДОРОВЬЕСердечно-сосудистая система">Сердечно-сосудистая система</a></li>
+                                                <li><a href="/ЗДОРОВЬЕИммунитет">Иммунитет</a></li>
+                                                <li><a href="/ЗДОРОВЬЕДля зубов">Для зубов</a></li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <ul>
+                                                <li><a href="/ЗДОРОВЬЕДля мозговой активности">Для мозговой активности</a></li>
+                                                <li><a href="/ЗДОРОВЬЕДля горла и носа">Для горла и носа</a></li>
+                                                <li><a href="/ЗДОРОВЬЕПри варикозе и геморро">При варикозе и геморрое</a></li>
+                                                <li><a href="/ЗДОРОВЬЕПищеварительная система">Пищеварительная система</a></li>
+                                                <li><a href="/ЗДОРОВЬЕДля слуха">Для слуха</a></li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <ul>
+                                                <li><a href="/ЗДОРОВЬЕНервная система">Нервная система</a></li>
+                                                <li><a href="/ЗДОРОВЬЕДля печени и почек">Для печени и почек</a></li>
+                                                <li><a href="/ЗДОРОВЬЕДля суставов">Для суставов</a></li>
+                                                <li><a href="/ЗДОРОВЬЕПри возрастных изменениях">При возрастных изменениях</a></li>
+                                                <li><a href="/ЗДОРОВЬЕДля зрения">Для зрения</a></li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <ul>
+                                                <li><a href="/ЗДОРОВЬЕПри аллергии">При аллергии</a></li>
+                                                <li><a href="/ЗДОРОВЬЕОт паразитов">От паразитов</a></li>
+                                                <li><a href="/ЗДОРОВЬЕПокровная система">Покровная система</a></li>
+                                                <li><a href="/ЗДОРОВЬЕПри диабете">При диабете</a></li>
+                                                <li><a href="/ЗДОРОВЬЕЭндокринная систем">Эндокринная система</a></li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <ul>
+                                                <li><a href=""></a></li>
+                                            </ul>
+                                        </li>
+
+                                    </ul>
+                                </li>
 
 
-            </div>
-            
-            <!--вторая полоса-->
-            <div class="line_2">
+                                <li>
+                                    <a href="/Тело">Тело</a>
+                                    <ul class="submenu">
+                                        <li>
+                                            <ul>
+                                                <li><a href=""></a></li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <ul>
+                                                <li><a href=""></a></li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <ul>
+                                                <li><a href="/ТелоМолочко для тела">Молочко для тела</a></li>
+                                                <li><a href="/ТелоКремы">Кремы</a></li>
+                                                <li><a href="/ТелоНоги">Ноги</a></li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <ul>
 
-            </div>
-            <div>
-                <nav class="container">
-                    <ul class="top-menu">
-                        <li>
-                            <a href="">ЗДОРОВЬЕ</a>
-                            <ul class="submenu">
-                                <li>
-                                    <ul>
-                                        <li><a href="">Борьба с лишним весом</a></li>
-                                        <li><a href="">Дыхательная система</a></li>
-                                        <li><a href="">Сердечно-сосудистая система</a></li>
-                                        <li><a href="">Иммунитет</a></li>
+                                                <li><a href="/ТелоСредства для ванн">Средства для ванн</a></li>
+                                                <li><a href="/ТелоРуки">Руки</a></li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <ul>
+                                                <li><a href=""></a></li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <ul>
+                                                <li><a href=""></a></li>
+                                            </ul>
+                                        </li>
                                     </ul>
                                 </li>
+
                                 <li>
-                                    <ul>
-                                        <li><a href="">Для мозговой активности</a></li>
-                                        <li><a href="">Для горла и носа</a></li>
-                                        <li><a href="">При варикозе и геморрое</a></li>
-                                        <li><a href="">Пищеварительная система</a></li>
+                                    <a href="/ЛИЦО">ЛИЦО</a>
+                                    <ul class="submenu">
+                                        <li>
+                                            <ul>
+                                                <li><a href=""></a></li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <ul>
+                                                <li><a href=""></a></li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <ul>
+                                                <li><a href="/ЛИЦОДля ресниц">Для ресниц</a></li>
+                                                <li><a href="/ЛИЦООчищение">Очищение</a></li>
+                                                <li><a href="/ЛИЦОКремы">Кремы</a></li>
+                                                <li><a href="/ЛИЦОМаски">Маски</a></li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <ul>
+                                                <li><a href="/ЛИЦОПодарочные наборы">Подарочные наборы</a></li>
+                                                <li><a href="/ЛИЦОТоники">Тоники</a></li>
+                                                <li><a href="/ЛИЦОСыворотки">Сыворотки</a></li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <ul>
+                                                <li><a href=""></a></li>
+
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <ul>
+                                                <li><a href=""></a></li>
+                                            </ul>
+                                        </li>
                                     </ul>
                                 </li>
+
+
                                 <li>
-                                    <ul>
-                                        <li><a href="">Нервная система</a></li>
-                                        <li><a href="">Для печени и почек</a></li>
-                                        <li><a href="">Для суставов</a></li>
-                                        <li><a href="">При возрастных изменениях</a></li>
+                                    <a href="/ВОЛОСЫ">ВОЛОСЫ</a>
+                                    <ul class="submenu">
+                                        <li>
+                                            <ul>
+                                                <li><a href=""></a></li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <ul>
+                                                <li><a href=""></a></li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <ul>
+                                                <li><a href="/ВОЛОСЫШампуни">Шампуни</a></li>
+                                                <li><a href="/ВОЛОСЫМаски">Маски</a></li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <ul>
+                                                <li><a href="/ВОЛОСЫОполаскиватели">Ополаскиватели</a></li>
+
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <ul>
+                                                <li><a href=""></a></li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <ul>
+                                                <li><a href=""></a></li>
+                                            </ul>
+                                        </li>
                                     </ul>
                                 </li>
+
                                 <li>
-                                    <ul>
-                                        <li><a href="">При аллергии</a></li>
-                                        <li><a href="">От паразитов</a></li>
-                                        <li><a href="">Покровная система</a></li>
-                                        <li><a href="">При диабете</a></li>
+                                    <a href="/ЖЕНЩИНАМ">ЖЕНЩИНАМ</a>
+                                    <ul class="submenu">
+                                        <li>
+                                            <ul>
+                                                <li><a href=""></a></li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <ul>
+                                                <li><a href=""></a></li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <ul>
+                                                <li><a href="/ЖЕНЩИНАМЗдоровье">Здоровье </a> </li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <ul>
+                                                <li><a href="/ЖЕНЩИНАМСредства для интимной гигиены">Средства для интимной гигиены</a></li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <ul>
+                                                <li><a href=""></a></li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <ul>
+                                                <li><a href=""></a></li>
+                                            </ul>
+                                        </li>
                                     </ul>
                                 </li>
+
                                 <li>
-                                    <ul>
-                                        <li><a href="">Эндокринная система</a></li>
-                                        <li><a href="">Для зрения</a></li>
-                                        <li><a href="">Для слуха</a></li>
-                                        <li><a href="">Для зубов</a></li>
+                                    <a href="/МУЖЧИНАМ">МУЖЧИНАМ</a>
+                                    <ul class="submenu">
+                                        <li>
+                                            <ul>
+                                                <li><a href=""></a></li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <ul>
+                                                <li><a href=""></a></li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <ul>
+                                                <li><a href="/МужчинамЗдоровье">Здоровье </a> </li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <ul>
+                                                <li><a href="/МУЖЧИНАМСредства для интимной гигиены">Средства для интимной гигиены</a></li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <ul>
+                                                <li><a href=""></a></li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <ul>
+                                                <li><a href=""></a></li>
+                                            </ul>
+                                        </li>
                                     </ul>
+                                </li>
+
+                                <li>
+                                    <a href="/ДЕТЯМ">ДЕТЯМ</a>
                                 </li>
 
                             </ul>
-                        </li>
-
-
-                        <li>
-                            <a href="">Тело</a>
-                            <ul class="submenu">
-                                <li>
-                                    <ul>
-                                        <li><a href=""></a></li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <ul>
-                                        <li><a href="">Руки</a></li>
-                                        <li><a href="">Кремы</a></li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <ul>
-                                        <li><a href="">Молочко для тела</a></li>
-                                        <li><a href="">Средства для ванн</a></li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <ul>
-                                        <li><a href="">Ноги</a></li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <ul>
-                                        <li><a href=""></a></li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </li>
-
-                        <li>
-                            <a href="">ЛИЦО</a>
-                            <ul class="submenu">
-                                <li>
-                                    <ul>
-                                        <li><a href=""></a></li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <ul>
-                                        <li><a href="">Для ресниц</a></li>
-                                        <li><a href="">Очищение</a></li>
-                                        <li><a href="">Кремы</a></li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <ul>
-                                        <li><a href="">Подарочные наборы</a></li>
-                                        <li><a href="">Тоники</a></li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <ul>
-                                        <li><a href="">Сыворотки</a></li>
-                                        <li><a href="">Маски</a></li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <ul>
-                                        <li><a href=""></a></li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </li>
-
-
-                        <li>
-                            <a href="">ВОЛОСЫ</a>
-                            <ul class="submenu">
-                                <li>
-                                    <ul>
-                                        <li><a href=""></a></li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <ul>
-                                        <li><a href="">Шампуни</a></li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <ul>
-                                        <li><a href="">Маски</a></li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <ul>
-                                        <li><a href="">Ополаскиватели</a></li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <ul>
-                                        <li><a href=""></a></li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </li>
-
-                        <li>
-                            <a href="">ЖЕНЩИНАМ</a>
-                            <ul class="submenu">
-                                <li>
-                                    <ul>
-                                        <li><a href=""></a></li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <ul>
-                                        <li><a href=""></a></li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <ul>
-                                        <li><a href="">Здоровье </a> </li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <ul>
-                                        <li><a href="">Средства для интимной гигиены</a></li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <ul>
-                                        <li><a href=""></a></li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <ul>
-                                        <li><a href=""></a></li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </li>
-
-                        <li>
-                            <a href="">МУЖЧИНАМ</a>
-                            <ul class="submenu">
-                                <li>
-                                    <ul>
-                                        <li><a href=""></a></li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <ul>
-                                        <li><a href=""></a></li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <ul>
-                                        <li><a href="">Здоровье </a> </li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <ul>
-                                        <li><a href="">Средства для интимной гигиены</a></li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <ul>
-                                        <li><a href=""></a></li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <ul>
-                                        <li><a href=""></a></li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </li>
-
-                        <li>
-                            <a href="">ДЕТЯМ</a>
-                        </li>
-
+                        </nav>
+                        @*<nav class="positionNav">
+                    <ul class="topmenu">
+                        @foreach (var _category in Category.category)
+                        {
+                            <li>
+                                <a href="/@_category.Key">@_category.Key</a>
+                                <ul class="submenu">
+                                    @foreach (var _category2 in _category.Value)
+                                    {
+                                        <li>  <a href="/@_category2 ">@_category2</a></li>
+                                    }
+                                </ul>
+                            </li>
+                        }
                     </ul>
-                </nav>
-                @*<nav class="positionNav">
-            <ul class="topmenu">
-                @foreach (var _category in Category.category)
-                {
-                    <li>
-                        <a href="/@_category.Key">@_category.Key</a>
-                        <ul class="submenu">
-                            @foreach (var _category2 in _category.Value)
-                            {
-                                <li>  <a href="/@_category2 ">@_category2</a></li>
-                            }
-                        </ul>
-                    </li>
-                }
-            </ul>
-        </nav>*@
-            </div>
-        </div>
-      
-
-        <main class="backgroundbody">
-
-            @*<table class="table-condensed">*@
-
-            @*</table>*@
-            <!--основной контент-->
-            <div class="container body-content">
-                @RenderBody()
-            </div>
-        </main>
-                <div class="footer1">
-                    © 2019 - Кладовая Алтая  @*<p>© 2019 - Кладовая Алтая</p>*@
-                </div>
-                @*<footer class="footer1">
-                    <p>© 2019 - Кладовая Алтая</p>
-                </footer>*@
-            
+                </nav>*@
     </div>
-</body>
+    </div>
+
+
+    <main class="backgroundbody">
+
+        @*<table class="table-condensed">*@
+
+        @*</table>*@
+        <!--основной контент-->
+        <div class="container body-content">
+            @RenderBody()
+        </div>
+    </main>
+    <div class="footer1">
+        © 2019 - Кладовая Алтая  @*<p>© 2019 - Кладовая Алтая</p>*@
+    </div>
+    @*<footer class="footer1">
+            <p>© 2019 - Кладовая Алтая</p>
+        </footer>*@
+
+    </div>
+    </body>
 </html>

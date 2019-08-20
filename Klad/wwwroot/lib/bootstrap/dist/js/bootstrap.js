@@ -1198,7 +1198,7 @@ if (typeof jQuery === 'undefined') {
     this.originalBodyPad = document.body.style.paddingRight || ''
     var scrollbarWidth = this.scrollbarWidth
     if (this.bodyIsOverflowing) {
-      this.$body.css('padding-right', bodyPad + scrollbarWidth)
+      //this.$body.css('padding-right', bodyPad + scrollbarWidth)
       $(this.fixedContent).each(function (index, element) {
         var actualPadding = element.style.paddingRight
         var calculatedPadding = $(element).css('padding-right')

@@ -2,7 +2,9 @@
     background: #2D2B41;
     padding-top: 12px;
     /*margin: 0 auto;*/
+ 
 }
+
 
 /*html {
     background: #f0f0f0;
@@ -13,7 +15,7 @@
     /*float: right;
     width: 200px;*/
     
-    margin-right: 20px;
+   /* margin-right: 20px;*/
     /*padding-top: 30px;*/
     
     height: 46px;
@@ -115,7 +117,8 @@
     -webkit-background-size: 100%; /* Safari 3.1+ и Chrome 4.0+ */
     -o-background-size: 100%; /* Opera 9.6+ */
     background-size: 100%; /* Современные браузеры */
-    height: 1920px;
+    /*height: 1920px;*/
+    height: 4500px;
     background-attachment: fixed;
     background-position: center;
     /*background-attachment: initial;
@@ -139,7 +142,11 @@
 
 .GeneralHeader {
     /*padding: 50px 0;*/
-    font-size: 20px;
+    /*font-size: 20px;*/
     line-height: 24px;
     text-align: center;
+    position: sticky;
+    top: 0;
+    min-height: 2em;
+    z-index:2;
 }
